@@ -40,7 +40,7 @@
           <footer>
               <div class="col-md-12">
                 Este es el footer<br />
-                <a href="../index.php">Home</a>
+                <a href="../index.php" class="btn btn-info">Home</a>
               </div>
           </footer>
         </div>

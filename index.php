@@ -119,7 +119,7 @@ $blog_posts = $query->fetchAll(PDO::FETCH_ASSOC);
           <footer>
               <div class="col-md-12">
                 Este es el footer<br />
-                <a href="admin/index.php">Admin Panel</a>
+                <a href="admin/index.php" class="btn btn-info">Admin Panel</a>
               </div>
           </footer>
         </div>
