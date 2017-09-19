@@ -1,24 +1,3 @@
-<?php
-
-//creamos el query
-$sql = "SELECT  * FROM blog_posts ORDER BY id DESC";//trae todos los blog posts empezando por el ultimo ID
-//la preparamos y ejecutamos
-$query = $pdo->prepare($sql);
-$query->execute();
-//hacemos el fetch de todas las filas
-$blog_posts = $query->fetchAll(PDO::FETCH_ASSOC);
-
-// Query alternativo:
-// $blog_posts = $pdo->query($sql,PDO::FETCH_ASSOC);
-// Fin query
-
-//inspeccionamos los valores:
-// var_dump($blog_posts);
-// echo "<br />";
-// foreach ($blog_posts as $blog_post):
-//   var_dump($blog_post);
-// endforeach;
- ?>
 <!DOCTYPE html>
 <html>
   <head>
