@@ -1,5 +1,5 @@
 <?php
-include_once '../config.php';
+
 //creamos el query
 $sql = "SELECT  * FROM blog_posts ORDER BY id DESC";//trae todos los blog posts empezando por el ultimo ID
 //la preparamos y ejecutamos
@@ -56,7 +56,7 @@ $blog_posts = $query->fetchAll(PDO::FETCH_ASSOC);
               </tr>
             <?php endforeach; ?>
             </table>
-          
+
             <a href="insert-post.php" class="btn btn-primary">New Post</a>
 
           </div>

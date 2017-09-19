@@ -1,5 +1,5 @@
 <?php
-include_once 'config.php';
+
 //creamos el query
 $sql = "SELECT  * FROM blog_posts ORDER BY id DESC";//trae todos los blog posts empezando por el ultimo ID
 //la preparamos y ejecutamos
