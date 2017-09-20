@@ -1,10 +1,10 @@
 Blog simple hecho en PHP
 Caracteristicas:
- - Uso del patron de diseno Front Controller.
+ - Uso del patron de diseno Front Controller utilizando el paquete Phroute.
  - Manejo de dependencias e instalacion de paquetes/librerias utilizando Composer.
 
 Librerias utilizadas:
- -> Phroute:
+ -> Phroute (v2.1.0):
        https://packagist.org/packages/phroute/phroute
 
 Version de PHP utilizada: 5.6.31
