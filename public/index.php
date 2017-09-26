@@ -111,7 +111,7 @@ $router = new RouteCollector();
     });
 
 ####
-    $router->get('manage_blog_posts', function() use ($pdo){
+    $router->get('admin/posts', function() use ($pdo){
 
       // CODIGO PHP DE POSTS.PHP
     // ======================
@@ -131,22 +131,18 @@ $router = new RouteCollector();
     });
 
 ####
-    $router->get('insert-post',function() {
-      // CODIGO PHP DE INSERT-POST.PHP (GET)
-    // ======================
-          $result = "";
-    // ======================
+    $router->get('admin/insert-post',function() {
+
         // RENDER (GET)
       // ======================
-    return render('../views/admin/insert-post.php',['result' => $result]);
+    return render('../views/admin/insert-post.php');
       // ======================
     });
 
 ####
-    $router->post('insert-post', function () use ($pdo) {
+    $router->post('admin/insert-post', function () use ($pdo) {
       // CODIGO PHP DE INSERT-POST.PHP (POST)
     // ======================
-        $result = "";
           $sql = "INSERT INTO blog_posts (title, content) VALUES (:title, :content)";
           //es buena practica preparar las sentencias con 'prepare' porque mejora el rendimiento de la aplicacion.
           //ya que los queries quedan en cache para ser usados cuando yo quiera con 'execute'

@@ -16,12 +16,12 @@
 
           <div class="col-md-8">
             <h2>New Posts</h2>
-            <?php if ($result) {
+            <?php if (isset($result) && $result) {
               echo '<div class="alert alert-success">
               Post added Successfully!
               </div>';
             } ?>
-            <form action="<?php echo BASE_URL . '?route=insert-post' ?>" method="post">
+            <form action="<?php echo BASE_URL . 'admin/insert-post' ?>" method="post">
                 <div class="form-group">
                   <label for="inputTitle">Title</label>
                   <input class="form-control" type="text" name="title" value="" id="inputTitle">
@@ -51,7 +51,8 @@
           <footer>
               <div class="col-md-12">
                 Este es el footer<br />
-                <a href="<?php echo BASE_URL . '?route=manage_blog_posts' ?>" class="btn btn-info">Back</a>
+                <a href="<?php echo BASE_URL . 'admin/posts' ?>" class="btn btn-info">Back</a>
+                <!-- <a href="<?php echo BASE_URL . '?route=admin/posts' ?>" class="btn btn-info">Back</a> -->
               </div>
           </footer>
         </div>

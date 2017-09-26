@@ -36,7 +36,8 @@
             <?php endforeach; ?>
             </table>
 
-            <a href="<?php echo BASE_URL . '?route=insert-post'; ?>" class="btn btn-primary">New Post</a>
+            <a href="<?php echo BASE_URL . 'admin/insert-post'; ?>" class="btn btn-primary">New Post</a>
+            <!-- <a href="<?php echo BASE_URL . '?route=insert-post'; ?>" class="btn btn-primary">New Post</a> -->
 
           </div>
 
@@ -59,7 +60,8 @@
           <footer>
               <div class="col-md-12">
                 Este es el footer<br />
-                <a href="<?php echo BASE_URL . '?route=admin'; ?>" class="btn btn-info">Back</a>
+                <a href="<?php echo BASE_URL . 'admin'; ?>" class="btn btn-info">Back</a>
+                <!-- <a href="<?php echo BASE_URL . '?route=admin'; ?>" class="btn btn-info">Back</a> -->
               </div>
           </footer>
         </div>

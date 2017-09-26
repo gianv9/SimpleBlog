@@ -16,7 +16,8 @@
           <div class="col-md-8">
             <ul>
               <li>
-                  <a href="<?php echo BASE_URL . '?route=manage_blog_posts' ?>">Manage BlogPosts</a>
+                  <a href="<?php echo BASE_URL . 'admin/posts' ?>">Manage BlogPosts</a>
+                  <!-- <a href="<?php echo BASE_URL . '?route=admin/posts' ?>">Manage BlogPosts</a> -->
               </li>
             </ul>
           </div>
