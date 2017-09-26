@@ -1,4 +1,5 @@
 <?php
+// var_dump($_GET);
 //inicializar el SISTEMA DE ERRORES DE PHP
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -14,6 +15,42 @@ require_once '../vendor/autoload.php';
 
 //quitamos el include de las vistas y lo agregamos al controlador principal
 include_once '../config.php';
+
+//directorio base de la aplicaicon
+//direccion del script:
+// $baseDir = $_SERVER['SCRIPT_NAME'];
+// var_dump($baseDir);
+// echo "<hr />";
+//$variableConResultado = str_replace(<elemento(s) a buscar> <valor por el que se reemplaza>,<cadena afectada>)
+// Source:
+// http://php.net/manual/es/function.str-replace.php
+
+
+    #================================== URL BASE ========================================
+        $baseDir = str_replace(basename($_SERVER['SCRIPT_NAME']), '', $_SERVER['SCRIPT_NAME']);
+        // var_dump($baseDir);
+        //url base
+        $baseUrl = 'http://' . $_SERVER['HTTP_HOST'] . $baseDir;
+        // var_dump($baseUrl);
+        //definimos una constante
+        define('BASE_URL', $baseUrl);
+      #===============================================================================
+
+      #================================== VIEWS RENDERING =======================================
+          #by initializing the params parameter of the function we can call it using only the fileName.
+          # example:
+            #render('add_blog_post.php');
+        function render( $fileName , $params = [] ){
+          //skip output, strore everything internally
+          //everything in between will be returned as a string
+            ob_start();//Turn on output buffering
+            extract($params); //turn an associative array into a set of global variables
+            include_once $fileName;
+            return ob_get_clean();//Get current buffer contents and delete current output buffer
+        }
+        #===============================================================================
+
+
 //
 // Operador de fusión de null ¶
 //
@@ -31,19 +68,53 @@ $route = isset($_GET['route']) ? $_GET['route'] : '/';
 // para utilizar sus clases:
 use Phroute\Phroute\RouteCollector;
 
-//creamos el objeto router
+//creamos el objeto router para almacenar las rutas
 $router = new RouteCollector();
 //definimos el tipo de request y las rutas
-$router->get('/', function () use($pdo){
-  // Aca agregamos el 'use' porque $pdo esta definido
-  // en el scope superior
-  // para que la funcion tenga acceso a esa variable se utiliza esta
-  // funcionalidad de php
+// $router->tipoderequest->('ruta',funcion anonima callback para responder)
 
-  // return 'Route /';
+#===========================#==========================ROUTES===========================#================================#
+####
+    $router->get('/', function () use($pdo){
+      // Aca agregamos el 'use' porque $pdo esta definido
+      // en el scope superior
+      // para que la funcion tenga acceso a esa variable se utiliza esta
+      // funcionalidad de php
 
-  // CODIGO PHP DE INDEX
-// ============================================================================================================
+      // return 'Route /';
+
+          // CODIGO PHP DE INDEX.PHP
+        // ======================
+            //creamos el query
+            //trae todos los blog posts empezando por el ultimo ID
+            $sql = "SELECT  * FROM blog_posts ORDER BY id DESC";
+            //la preparamos y ejecutamos
+            $query = $pdo->prepare($sql);
+            $query->execute();
+            //hacemos el fetch de todas las filas
+            $blog_posts = $query->fetchAll(PDO::FETCH_ASSOC);
+
+        // ======================
+      // ahora tenemos que hacer el render de la pagina:
+
+        // RENDER
+      // ======================
+      return render('../views/index.php',['blog_posts' => $blog_posts]);
+      // ======================
+
+    });
+
+####
+    $router->get('admin',function(){
+      // include '../views/admin/index.php';
+      return render('../views/admin/index.php');
+    });
+
+####
+    $router->get('manage_blog_posts', function() use ($pdo){
+
+      // CODIGO PHP DE POSTS.PHP
+    // ======================
     //creamos el query
     $sql = "SELECT  * FROM blog_posts ORDER BY id DESC";//trae todos los blog posts empezando por el ultimo ID
     //la preparamos y ejecutamos
@@ -51,21 +122,49 @@ $router->get('/', function () use($pdo){
     $query->execute();
     //hacemos el fetch de todas las filas
     $blog_posts = $query->fetchAll(PDO::FETCH_ASSOC);
+    // ======================
 
-    // Query alternativo:
-    // $blog_posts = $pdo->query($sql,PDO::FETCH_ASSOC);
-    // Fin query
+        // RENDER
+      // ======================
+        return render('../views/admin/posts.php',['blog_posts' => $blog_posts]);
+      // ======================
+    });
 
-    //inspeccionamos los valores:
-    // var_dump($blog_posts);
-    // echo "<br />";
-    // foreach ($blog_posts as $blog_post):
-    //   var_dump($blog_post);
-    // endforeach;
-// ============================================================================================================
-  // ahora tenemos que hacer el render de la pagina:
-  include '../views/index.php';
-});
+####
+    $router->get('insert-post',function() {
+      // CODIGO PHP DE INSERT-POST.PHP (GET)
+    // ======================
+          $result = "";
+    // ======================
+        // RENDER (GET)
+      // ======================
+    return render('../views/admin/insert-post.php',['result' => $result]);
+      // ======================
+    });
+
+####
+    $router->post('insert-post', function () use ($pdo) {
+      // CODIGO PHP DE INSERT-POST.PHP (POST)
+    // ======================
+        $result = "";
+          $sql = "INSERT INTO blog_posts (title, content) VALUES (:title, :content)";
+          //es buena practica preparar las sentencias con 'prepare' porque mejora el rendimiento de la aplicacion.
+          //ya que los queries quedan en cache para ser usados cuando yo quiera con 'execute'
+          $query = $pdo->prepare($sql);
+          $result = $query->execute([
+            'title' => $_POST['title'],
+            'content' => $_POST['content']
+          ]);
+    // ======================
+
+    // RENDER (POST)
+  // ======================
+    return render('../views/admin/insert-post.php',['result' => $result]);
+  // ======================
+
+    });
+
+#===========================#===============================#===============================#================================#
 
 //utilizamos el dispatcher
 // que es el objeto que va a tomar la ruta que
@@ -77,22 +176,5 @@ $dispatcher = new Phroute\Phroute\Dispatcher($router->getData());
 $response = $dispatcher->dispatch($_SERVER['REQUEST_METHOD'], $route);
 
 echo "$response";
-
-// // Router estatico de ejempo:
-// switch ($route) {
-//   case '/':
-//       require '../index.php';
-//     break;
-//   case 'admin':
-//       require '../admin/index.php';
-//       // echo "$route";
-//     break;
-//   case 'admin/posts':
-//       require '../admin/posts.php';
-//     break;
-//   default:
-//     # code...
-//     break;
-// }
 
  ?>

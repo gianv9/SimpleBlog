@@ -98,7 +98,7 @@
           <footer>
               <div class="col-md-12">
                 Este es el footer<br />
-                <a href="admin/index.php" class="btn btn-info">Admin Panel</a>
+                <a href="<?php echo BASE_URL.'?route=admin' ?>" class="btn btn-info">Admin Panel</a>
               </div>
           </footer>
         </div>

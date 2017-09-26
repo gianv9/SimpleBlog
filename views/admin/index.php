@@ -16,7 +16,7 @@
           <div class="col-md-8">
             <ul>
               <li>
-                  <a href="posts.php">Manage BlogPosts</a>
+                  <a href="<?php echo BASE_URL . '?route=manage_blog_posts' ?>">Manage BlogPosts</a>
               </li>
             </ul>
           </div>
@@ -40,7 +40,7 @@
           <footer>
               <div class="col-md-12">
                 Este es el footer<br />
-                <a href="../index.php" class="btn btn-info">Home</a>
+                <a href="<?php echo BASE_URL; ?>" class="btn btn-info">Home</a>
               </div>
           </footer>
         </div>

@@ -1,17 +1,3 @@
-<?php
-
-$result = "";
-if (!empty($_POST)) {
-  $sql = "INSERT INTO blog_posts (title, content) VALUES (:title, :content)";
-  //es buena practica preparar las sentencias con 'prepare' porque mejora el rendimiento de la aplicacion.
-  //ya que los queries quedan en cache para ser usados cuando yo quiera con 'execute'
-  $query = $pdo->prepare($sql);
-  $result = $query->execute([
-    'title' => $_POST['title'],
-    'content' => $_POST['content']
-  ]);
-}
- ?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -35,7 +21,7 @@ if (!empty($_POST)) {
               Post added Successfully!
               </div>';
             } ?>
-            <form action="insert-post.php" method="post">
+            <form action="<?php echo BASE_URL . '?route=insert-post' ?>" method="post">
                 <div class="form-group">
                   <label for="inputTitle">Title</label>
                   <input class="form-control" type="text" name="title" value="" id="inputTitle">
@@ -65,7 +51,7 @@ if (!empty($_POST)) {
           <footer>
               <div class="col-md-12">
                 Este es el footer<br />
-                <a href="posts.php" class="btn btn-info">Back</a>
+                <a href="<?php echo BASE_URL . '?route=manage_blog_posts' ?>" class="btn btn-info">Back</a>
               </div>
           </footer>
         </div>
