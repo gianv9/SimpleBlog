@@ -75,90 +75,17 @@ $router = new RouteCollector();
 
 #===========================#==========================ROUTES===========================#================================#
 ####
-    $router->get('/', function () use($pdo){
-      // Aca agregamos el 'use' porque $pdo esta definido
-      // en el scope superior
-      // para que la funcion tenga acceso a esa variable se utiliza esta
-      // funcionalidad de php
-
-      // return 'Route /';
-
-          // CODIGO PHP DE INDEX.PHP
-        // ======================
-            //creamos el query
-            //trae todos los blog posts empezando por el ultimo ID
-            $sql = "SELECT  * FROM blog_posts ORDER BY id DESC";
-            //la preparamos y ejecutamos
-            $query = $pdo->prepare($sql);
-            $query->execute();
-            //hacemos el fetch de todas las filas
-            $blog_posts = $query->fetchAll(PDO::FETCH_ASSOC);
-
-        // ======================
-      // ahora tenemos que hacer el render de la pagina:
-
-        // RENDER
-      // ======================
-      return render('../views/index.php',['blog_posts' => $blog_posts]);
-      // ======================
-
-    });
+    $router->controller('/',App\Controllers\IndexController::class);#(ruta,clase controladora)
+    //utilizamos una clase controladora en vez de un metodo especifico
 
 ####
-    $router->get('admin',function(){
-      // include '../views/admin/index.php';
-      return render('../views/admin/index.php');
-    });
+    $router->controller('admin',App\Controllers\Admin\IndexController::class);
 
 ####
-    $router->get('admin/posts', function() use ($pdo){
-
-      // CODIGO PHP DE POSTS.PHP
-    // ======================
-    //creamos el query
-    $sql = "SELECT  * FROM blog_posts ORDER BY id DESC";//trae todos los blog posts empezando por el ultimo ID
-    //la preparamos y ejecutamos
-    $query = $pdo->prepare($sql);
-    $query->execute();
-    //hacemos el fetch de todas las filas
-    $blog_posts = $query->fetchAll(PDO::FETCH_ASSOC);
-    // ======================
-
-        // RENDER
-      // ======================
-        return render('../views/admin/posts.php',['blog_posts' => $blog_posts]);
-      // ======================
-    });
+    $router->controller('admin/posts', App\Controllers\Admin\PostsController::class);
 
 ####
-    $router->get('admin/insert-post',function() {
-
-        // RENDER (GET)
-      // ======================
-    return render('../views/admin/insert-post.php');
-      // ======================
-    });
-
-####
-    $router->post('admin/insert-post', function () use ($pdo) {
-      // CODIGO PHP DE INSERT-POST.PHP (POST)
-    // ======================
-          $sql = "INSERT INTO blog_posts (title, content) VALUES (:title, :content)";
-          //es buena practica preparar las sentencias con 'prepare' porque mejora el rendimiento de la aplicacion.
-          //ya que los queries quedan en cache para ser usados cuando yo quiera con 'execute'
-          $query = $pdo->prepare($sql);
-          $result = $query->execute([
-            'title' => $_POST['title'],
-            'content' => $_POST['content']
-          ]);
-    // ======================
-
-    // RENDER (POST)
-  // ======================
-    return render('../views/admin/insert-post.php',['result' => $result]);
-  // ======================
-
-    });
+    $router->controller('admin/posts/insertPost', App\Controllers\Admin\PostsController::class);
 
 #===========================#===============================#===============================#================================#
 

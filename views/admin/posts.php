@@ -36,7 +36,7 @@
             <?php endforeach; ?>
             </table>
 
-            <a href="<?php echo BASE_URL . 'admin/insert-post'; ?>" class="btn btn-primary">New Post</a>
+            <a href="<?php echo BASE_URL . 'admin/posts/insert'; ?>" class="btn btn-primary">New Post</a>
             <!-- <a href="<?php echo BASE_URL . '?route=insert-post'; ?>" class="btn btn-primary">New Post</a> -->
 
           </div>

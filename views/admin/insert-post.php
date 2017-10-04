@@ -21,7 +21,7 @@
               Post added Successfully!
               </div>';
             } ?>
-            <form action="<?php echo BASE_URL . 'admin/insert-post' ?>" method="post">
+            <form action="<?php echo BASE_URL . 'admin/posts/insert' ?>" method="post">
                 <div class="form-group">
                   <label for="inputTitle">Title</label>
                   <input class="form-control" type="text" name="title" value="" id="inputTitle">
