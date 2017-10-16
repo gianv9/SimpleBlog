@@ -3,6 +3,9 @@
 
 namespace App\Controllers;
 
+use Twig_Loader_Filesystem;
+use Twig_Environment;
+
 /**
  *
  */
@@ -13,17 +16,16 @@ class BaseController
   protected $templateEngine;
 
   //siempre se ejecuta en las clases hijas
-  function __construct(argument)
+  function __construct()
   {
     // Inicializar y cargar Twig
     //clase para cargar los archivos del sistema
     //se pone el '\' antes de Twig porque pertenece al namespace global
-    $loader = \Twig_Loader_Filesystem('../views');//desde donde cargaremos nuestros archivos de vista
+    $loader = new Twig_Loader_Filesystem('../views');//desde donde cargaremos nuestros archivos de vista
     //ruta esta definida a partitr del script que manda a llamar esta clase
     //es decir como llamo este script/esta clase desde IndexController.php esa es la ruta relativa
 
-    $this->templateEngine = new \Twig_Enviroment($loader,[
-      //parametros de configuracion
+    $this->templateEngine = new Twig_Environment($loader,[
       'debug' => true,
       'cache' => false
     ]);

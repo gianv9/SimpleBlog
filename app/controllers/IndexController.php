@@ -3,7 +3,7 @@
 /**
  * ESTE ES EL CONTROLADOR PARA LA RUTA INDEX '/'
  */
-class IndexController
+class IndexController Extends BaseController //para obtener la funcion de render
 {
 
   public function getIndex()
@@ -30,7 +30,8 @@ class IndexController
 
       // RENDER
     // ======================
-    return render('../views/index.php',['blog_posts' => $blog_posts]);
+    // return $render('../views/index.php',['blog_posts' => $blog_posts]);
+    return $this->render('index.twig',['blog_posts' => $blog_posts]);
     // ======================
 
   }
