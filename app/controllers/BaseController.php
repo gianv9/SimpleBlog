@@ -30,6 +30,13 @@ class BaseController
       'cache' => false
     ]);
 
+    //agregamos filtro de twig
+    //los filtros permiten recibir un valor y convertirlo/cambiarlo como nosotros queramos
+    //agregamos el prefijo a nuestro BASEURL
+    $this->templateEngine->addFilter(new \Twig_SimpleFilter('url', function($path){
+      return BASE_URL . $path;
+    }));
+
   }
 
   //para hacer el render de las vistas
