@@ -1,9 +1,12 @@
 <?php
 namespace App\Controllers\Admin;
+
+use App\Controllers\BaseController;
+
 /**
  *
  */
-class PostsController
+class PostsController extends BaseController
 {
 
   public function getIndex()
@@ -25,14 +28,14 @@ class PostsController
 
             // RENDER
           // ======================
-            return render('../views/admin/posts.php',['blog_posts' => $blog_posts]);
+            return $this->render('admin/posts.twig',['blog_posts' => $blog_posts]);
           // ======================
   }
   public function getInsert(){
             # admin/insert-posts
             // RENDER (GET)
           // ======================
-        return render('../views/admin/insert-post.php');
+        return $this->render('admin/insert-post.twig');
           // ======================
   }
   public function postInsert(){
@@ -54,7 +57,7 @@ class PostsController
 
   // RENDER (POST)
   // ======================
-  return render('../views/admin/insert-post.php',['result' => $result]);
+  return $this->render('admin/insert-post.php',['result' => $result]);
   // ======================
 
   }
