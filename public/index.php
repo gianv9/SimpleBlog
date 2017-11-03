@@ -13,8 +13,28 @@ error_reporting(E_ALL);
 require_once '../vendor/autoload.php';
 // Source:https://getcomposer.org/doc/01-basic-usage.md#autoloading
 
-//quitamos el include de las vistas y lo agregamos al controlador principal
-include_once '../config.php';
+//ELIMINAMOS CONFIGURACION ANTIGUA
+// include_once '../config.php';
+
+//AGREGAMOS INICIALIZACION DEL ORM
+use Illuminate\Database\Capsule\Manager as Capsule;
+
+$capsule = new Capsule;
+
+$capsule->addConnection([
+    'driver'    => 'mysql',
+    'host'      => 'localhost',
+    'database'  => 'databasePhp',
+    'username'  => 'root',
+    'password'  => '',
+    'charset'   => 'utf8',
+    'collation' => 'utf8_unicode_ci',
+    'prefix'    => '',
+]);
+
+$capsule->setAsGlobal();
+$capsule->bootEloquent();
+
 
 //directorio base de la aplicaicon
 //direccion del script:
