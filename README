@@ -3,6 +3,7 @@ Caracteristicas:
  - Uso del patron de diseno Front Controller utilizando el paquete Phroute.
  - Manejo de dependencias e instalacion de paquetes/librerias utilizando Composer.
  - Utilizacion del orm eloquent
+ - Utilizacion de DotEnv para simular variables de entorno dentro del proyecto
 
 Notas importantes:
 - El complemento illuminate (eloquent) necesita la extension de php mbstring.
@@ -16,6 +17,9 @@ Librerias utilizadas:
        https://packagist.org/packages/phroute/phroute
  -> illuminate (5.5):
       https://packagist.org/packages/illuminate/database
+ -> DotEnv (2.4)
+      https://packagist.org/packages/vlucas/phpdotenv?q=&p=0
+
 Version de PHP utilizada: 5.6.31
 
 Desarrollado utilizando XAMPP for Linux 5.6.31
