@@ -1,3 +1,29 @@
+{% extends "layout.twig" %}
+
+{% block content %}
+            <h2>Posts</h2>
+            <table class="table">
+              <tr>
+                  <th>Title</th>
+                  <th>Edit</th>
+                  <th>Delete</th>
+              </tr>
+
+              {% for blogPost in blogPosts %}
+                <tr>
+                  <td>{{blogPost.title}}</td>
+                  <td>Edit</td>
+                  <td>Delete</td>
+                </tr>
+              {% endfor %}
+
+            </table>
+
+            <a href="{{'admin/posts/insert' | url}}" class="btn btn-primary">New Post</a>
+            <!-- <a href="<?php echo BASE_URL . '?route=insert-post'; ?>" class="btn btn-primary">New Post</a> -->
+
+{% endblock %}
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -14,30 +40,6 @@
         </div>
         <div class="row">
           <div class="col-md-8">
-            <h2>Posts</h2>
-            <table class="table">
-              <tr>
-                  <th>Title</th>
-                  <th>Edit</th>
-                  <th>Delete</th>
-              </tr>
-              <?php foreach ($blog_posts as $post):?>
-              <tr>
-                  <td>
-                    <?php echo $post['title']; ?>
-                  </td>
-                  <td>
-                    Edit
-                  </td>
-                  <td>
-                    Delete
-                  </td>
-              </tr>
-            <?php endforeach; ?>
-            </table>
-
-            <a href="<?php echo BASE_URL . 'admin/posts/insert'; ?>" class="btn btn-primary">New Post</a>
-            <!-- <a href="<?php echo BASE_URL . '?route=insert-post'; ?>" class="btn btn-primary">New Post</a> -->
 
           </div>
 
