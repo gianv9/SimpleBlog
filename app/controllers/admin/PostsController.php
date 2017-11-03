@@ -57,7 +57,7 @@ class PostsController extends BaseController
 
   // RENDER (POST)
   // ======================
-  return $this->render('admin/insert-post.php',['result' => $result]);
+  return $this->render('admin/insert-post.twig',['result' => $result]);
   // ======================
 
   }
