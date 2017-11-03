@@ -2,6 +2,24 @@
 
 {% block content %}
             <h2>New Posts</h2>
+            {# si existe una variable llamada errors y contiene algo
+            entra en el if #}
+            {% if errors %}
+              <div class="alert alert-danger">
+                <ul>
+                  {# para cada input vamos a leer los mensajes #}
+                  {% for input, messages in errors %}
+                      {# recorremos los mensajes internos para cada input #}
+                      {% for message in messages %}
+                          <li>
+                            {{input}}: {{message}}
+                          </li>
+                      {% endfor %}
+                  {% endfor %}
+                </ul>
+              </div>
+            {% endif %}
+
             {% if result %}
               <div class="alert alert-success">
               Post added Successfully!

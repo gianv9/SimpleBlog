@@ -50,7 +50,7 @@ class PostsController extends BaseController
     }
     else{
       $errors = $validator->getMessages();
-      var_dump($errors);
+      // var_dump($errors);
     }
 
 
