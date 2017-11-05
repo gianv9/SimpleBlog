@@ -8,7 +8,7 @@ class UserController extends BaseController {
     //Metodo para obtener el listado de usuarios
     public function getIndex(){
         $users = User::all();
-        return $this->render('', [
+        return $this->render('admin/users.twig', [
             'users' => $users
         ]);
     }
