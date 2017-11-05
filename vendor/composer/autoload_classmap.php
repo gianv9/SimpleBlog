@@ -8,9 +8,11 @@ $baseDir = dirname($vendorDir);
 return array(
     'App\\Controllers\\Admin\\IndexController' => $baseDir . '/app/controllers/admin/IndexController.php',
     'App\\Controllers\\Admin\\PostsController' => $baseDir . '/app/controllers/admin/PostsController.php',
+    'App\\Controllers\\Admin\\UserControlles' => $baseDir . '/app/controllers/admin/UserController.php',
     'App\\Controllers\\BaseController' => $baseDir . '/app/controllers/BaseController.php',
     'App\\Controllers\\IndexController' => $baseDir . '/app/controllers/IndexController.php',
     'App\\Models\\BlogPosts' => $baseDir . '/app/models/BlogPost.php',
+    'App\\Models\\User' => $baseDir . '/app/models/User.php',
     'Carbon\\Carbon' => $vendorDir . '/nesbot/carbon/src/Carbon/Carbon.php',
     'Carbon\\CarbonInterval' => $vendorDir . '/nesbot/carbon/src/Carbon/CarbonInterval.php',
     'Carbon\\Exceptions\\InvalidDateException' => $vendorDir . '/nesbot/carbon/src/Carbon/Exceptions/InvalidDateException.php',

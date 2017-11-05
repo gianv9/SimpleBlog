@@ -110,6 +110,9 @@ $router = new RouteCollector();
 
 ####
     $router->controller('admin/posts/insertPost', App\Controllers\Admin\PostsController::class);
+
+####
+    $router->controller('admin/users', App\Controllers\Admin\UserController::class);
         
         //error:
         //Fatal error: Uncaught exception 'ReflectionException' with message 'Class App\Controllers\IndexController does not exist' in /opt/lampp/htdocs/cursoPhpPlatzi/ProyectoBlog/vendor/phroute/phroute/src/Phroute/RouteCollector.php:315 Stack trace: #0 /opt/lampp/htdocs/cursoPhpPlatzi/ProyectoBlog/vendor/phroute/phroute/src/Phroute/RouteCollector.php(315): ReflectionClass->__construct('App\\Controllers...') #1 /opt/lampp/htdocs/cursoPhpPlatzi/ProyectoBlog/public/index.php(78): Phroute\Phroute\RouteCollector->controller('/', 'App\\Controllers...') #2 {main} thrown in /opt/lampp/htdocs/cursoPhpPlatzi/ProyectoBlog/vendor/phroute/phroute/src/Phroute/RouteCollector.php on line 315
