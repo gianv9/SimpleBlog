@@ -3,7 +3,7 @@
 namespace App\Controllers\Admin;
 use App\Controllers\BaseController;
 
-class UserControlles extends BaseController {
+class UserController extends BaseController {
 
     //Metodo para obtener el listado de usuarios
     public function getIndex(){
