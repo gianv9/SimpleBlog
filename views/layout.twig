@@ -5,10 +5,21 @@
     <title>Databases with php</title>
     <!-- download css framework: http://getbootstrap.com/ -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <style>
+      #titulo{
+        margin-top: 50px;
+      }
+      #footer{
+        margin-bottom: 50px;
+      }
+    </style>
   </head>
   <body>
-    <div class="container"><div class="row">
-        {% block titulo %}{%  endblock  %}
+    <div class="container">
+        <div class="row" id="titulo">
+            <div class="col-md-12">
+                {% block titulo %}{%  endblock  %}
+            </div>
         </div>
         <div class="row">
           <div class="col-md-8">
@@ -32,7 +43,7 @@
             </p>
           </div>
         </div>
-        <div class="row">
+        <div class="row" id="footer">
           <footer>
               <div class="col-md-12">
                 Este es el footer<br />

@@ -1,7 +1,10 @@
 {% extends "layout.twig" %}
 
+{% block titulo %}
+      <h2>New Posts</h2>
+{% endblock %}
+
 {% block content %}
-            <h2>New Posts</h2>
             {# si existe una variable llamada errors y contiene algo
             entra en el if #}
             {% if errors %}
