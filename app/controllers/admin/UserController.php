@@ -26,7 +26,7 @@ class UserController extends BaseController {
 
         //agregamos validaciones
         $validator = new Validator();
-        $validator->add('nombre', 'required');
+        $validator->add('name', 'required');
         $validator->add('email', 'required');
         //verificamos el formato de email
         $validator->add('email', 'email');
@@ -35,7 +35,7 @@ class UserController extends BaseController {
         if($validator->validate($_POST)){
             //agregamos el usuario
             $user = new User();
-            $user->nombre = $_POST['nombre'];
+            $user->name = $_POST['name'];
             $user->email = $_POST['email'];
 
             //generamos password seguros
