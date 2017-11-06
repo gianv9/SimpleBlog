@@ -13,5 +13,12 @@ class UserController extends BaseController {
             'users' => $users
         ]);
     }
+    //metodo para desplegar el formulario
+    public function getCreate(){
 
+    }
+    //metodo para obtener los valores del formulario
+    public function postCreate(){
+
+    }
 }
