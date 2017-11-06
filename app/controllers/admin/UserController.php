@@ -15,7 +15,7 @@ class UserController extends BaseController {
     }
     //metodo para desplegar el formulario
     public function getCreate(){
-
+        return $this->render('admin/insert-user.twig');
     }
     //metodo para obtener los valores del formulario
     public function postCreate(){
