@@ -1,0 +1,13 @@
+ <div class="alert alert-danger">
+                <ul>
+                  {# para cada input vamos a leer los mensajes #}
+                  {% for input, messages in errors %}
+                      {# recorremos los mensajes internos para cada input #}
+                      {% for message in messages %}
+                          <li>
+                            {{input}}: {{message}}
+                          </li>
+                      {% endfor %}
+                  {% endfor %}
+                </ul>
+              </div>
