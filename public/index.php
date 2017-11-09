@@ -7,6 +7,11 @@ error_reporting(E_ALL);
 // este codigo permite que php retorne cualquier error
 // en cualquier punto de la aplicacion
 
+//iniciamos la sesion en el sistema
+//gracias al front controller la sesion esta disponible para cualquier pagina
+// de la aplicacion
+session_start();
+
 //incluimos el modulo de autoloading de composer
 //que permite cargar las clases de los
 // paquetes instalados por composer
@@ -107,6 +112,9 @@ $router = new RouteCollector();
 
 ####
 $router->controller('/login',App\Controllers\Admin\IndexController::class);
+
+####
+$router->controller('/admin',App\Controllers\Admin\IndexController::class);
 
 ####
     $router->controller('/admin/posts', App\Controllers\Admin\PostsController::class);
