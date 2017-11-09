@@ -103,7 +103,10 @@ $router = new RouteCollector();
     //utilizamos una clase controladora en vez de un metodo especifico
 
 ####
-    $router->controller('/admin',App\Controllers\Admin\IndexController::class);
+    $router->controller('/auth',App\Controllers\Admin\AuthController::class);
+
+####
+$router->controller('/login',App\Controllers\Admin\IndexController::class);
 
 ####
     $router->controller('/admin/posts', App\Controllers\Admin\PostsController::class);
