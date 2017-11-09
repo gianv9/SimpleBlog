@@ -5,6 +5,11 @@
 {%  endblock  %}
 
 {% block content %}
+
+      {% if errors %}
+          {% include('partials/errors.twig') %}
+      {% endif %}
+
        <form method="post">
           <div class="form-group">
           {# el usuario se autentifica con correo electronico #}
