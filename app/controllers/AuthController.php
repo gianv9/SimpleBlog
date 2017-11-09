@@ -2,6 +2,7 @@
   namespace App\Controllers;
   use App\Controllers\BaseController;
   use Sirius\Validation\Validator;
+  use App\Models\User;
 /**
  * ESTE ES EL CONTROLADOR PARA LA RUTA INDEX '/'
  */
@@ -15,9 +16,9 @@ class AuthController Extends BaseController //para obtener la funcion de render
   public function postLogin()
   {
     $validator = new Validator();    
-    $validator.add('email','required');
-    $validator.add('email','email');
-    $validator.add('password','required');
+    $validator->add('email','required');
+    $validator->add('email','email');
+    $validator->add('password','required');
 
     if($validator->validate($_POST)){
       //el where recibe el campo con el valor a comparar
@@ -36,7 +37,7 @@ class AuthController Extends BaseController //para obtener la funcion de render
       //vulnerabilidad del listado de usuarios???
     }
 
-    $errores = $validator->getMessages();
+    $errors = $validator->getMessages();
     return $this->render('login.twig',[
       'errors' => $errors
     ]);
