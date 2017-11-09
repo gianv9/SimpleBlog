@@ -127,6 +127,7 @@ class ComposerStaticInitc9716e1145281b54ccc06dc8e51abb9b
         'App\\Controllers\\Admin\\IndexController' => __DIR__ . '/../..' . '/app/controllers/admin/IndexController.php',
         'App\\Controllers\\Admin\\PostsController' => __DIR__ . '/../..' . '/app/controllers/admin/PostsController.php',
         'App\\Controllers\\Admin\\UserController' => __DIR__ . '/../..' . '/app/controllers/admin/UserController.php',
+        'App\\Controllers\\AuthController' => __DIR__ . '/../..' . '/app/controllers/AuthController.php',
         'App\\Controllers\\BaseController' => __DIR__ . '/../..' . '/app/controllers/BaseController.php',
         'App\\Controllers\\IndexController' => __DIR__ . '/../..' . '/app/controllers/IndexController.php',
         'App\\Models\\BlogPosts' => __DIR__ . '/../..' . '/app/models/BlogPost.php',
