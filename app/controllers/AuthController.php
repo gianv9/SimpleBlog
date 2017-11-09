@@ -1,5 +1,6 @@
 <?php
   namespace App\Controllers;
+  use App\Controllers\BaseController;
   use Sirius\Validation\Validator;
 /**
  * ESTE ES EL CONTROLADOR PARA LA RUTA INDEX '/'
@@ -25,8 +26,9 @@ class AuthController Extends BaseController //para obtener la funcion de render
       if($user){
         if(password_verify($_POST['password'], $user->password)){
           //usuario autenticado con exito
-          //c
-          $this->render('index.twig');
+          $_SESSION['userId'] = $user->id;
+          //creamos un encabezado en la respuesta
+          header('Location:' . BASE_URL . 'admin');
         }
       }
       //error de autenticacion

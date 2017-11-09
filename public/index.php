@@ -114,6 +114,9 @@ $router = new RouteCollector();
 $router->controller('/login',App\Controllers\Admin\IndexController::class);
 
 ####
+$router->controller('/admin',App\Controllers\Admin\IndexController::class);
+
+####
     $router->controller('/admin/posts', App\Controllers\Admin\PostsController::class);
 
 ####
