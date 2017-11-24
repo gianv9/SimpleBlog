@@ -1,0 +1,28 @@
+{%  extends "layout.twig"  %}
+
+{% block titulo %}
+  <h1>Login</h1
+{%  endblock  %}
+
+{% block content %}
+
+      {% if errors %}
+          {% include('partials/errors.twig') %}
+      {% endif %}
+
+       <form method="post">
+          <div class="form-group">
+          {# el usuario se autentifica con correo electronico #}
+            <label for="inputEmail">Email</label>
+           <input type="text" class="form-input" name="email" id="inputEmail"></input>
+          </div>
+          <div class="form-group">
+            <label for="inputPassword">Password</label>
+           <input type="password" class="form-input" name="password" id="inputPassword"></input>
+          </div>
+          <div class="form-group">
+           
+           <input type="submit" class="btn btn-primary" value="Login"></input>
+          </div>
+       </form>
+{% endblock %}

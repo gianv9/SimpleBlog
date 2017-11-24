@@ -1,0 +1,27 @@
+Blog simple hecho en PHP
+Caracteristicas:
+ - Uso del patron de diseno Front Controller utilizando el paquete Phroute.
+ - Manejo de dependencias e instalacion de paquetes/librerias utilizando Composer.
+ - Utilizacion del orm eloquent
+ - Utilizacion de DotEnv para simular variables de entorno dentro del proyecto
+ - Utilizacion de La libreria para validacion siriusphp
+
+Notas importantes:
+- El complemento illuminate (eloquent) necesita la extension de php mbstring.
+      Para instalarla en ubuntu correr el siguiete comando:
+      sudo apt-get install php7.0-mbstring
+      https://stackoverflow.com/questions/34471633/cannot-initialize-mbstring-with-php-7
+
+
+Librerias utilizadas:
+ -> Phroute (v2.1.0):
+       https://packagist.org/packages/phroute/phroute
+ -> illuminate (5.5):
+      https://packagist.org/packages/illuminate/database
+ -> DotEnv (2.4)
+      https://packagist.org/packages/vlucas/phpdotenv?q=&p=0
+ -> siriusphp (2.2)
+
+Version de PHP utilizada: 5.6.31
+
+Desarrollado utilizando XAMPP for Linux 5.6.31

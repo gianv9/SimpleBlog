@@ -1,0 +1,24 @@
+{# Agregamos un bloque de twig
+le decimos que va a heredar de otro template #}
+{%  extends "layout.twig"  %}
+
+{% block titulo %}
+  <h1>Blog Title</h1
+{%  endblock  %}
+
+{% block content %}
+        {% for blog_post in blog_posts %}
+                    <div class="blog-post">
+                      <!-- twig recibe arreglos asiciativos
+                      y los convierte en una especie de ebjeto de Twig -->
+                        <h2>{{ blog_post.title }}</h2>
+                        <p>Jan 1, 2020 by <a href="#">Gian</a></p>
+                        <div class="blog-post-image">
+                            <img src="images/blog.jpg" alt="">
+                        </div>
+                        <div class="blog-post-content">
+                          <p>{{blog_post.content}}</p>
+                        </div>
+                    </div>
+        {%  endfor  %}
+{% endblock %}

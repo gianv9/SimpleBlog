@@ -1,0 +1,20 @@
+1 - go to composer's web site > Downloads:
+https://getcomposer.org/download/
+
+2 - Download the latest snapshot and place it on the project's base directory.
+
+3 - create a file named "composer.json" with the following structure (code between dashed lines):
+        composer.json
+--------------------------------
+      {
+        "autoload": {},
+        "require": {}
+      }
+--------------------------------
+
+Where autoload holds the names of the classes you want to load automatically.
+And require holds the names of the packages/libraries required by the project.
+
+4 - Go to the terminal and enter these commands:
+  $ sudo apt install php7.0-cli  #(only if you don't have php installed)
+  $ php composer.phar install
