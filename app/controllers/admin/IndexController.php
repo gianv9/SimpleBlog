@@ -24,7 +24,7 @@ class IndexController extends BaseController
       }
     }
     // de lo contrario redireccionamos al login
-    header('Location: ' . BASE_URL . 'login');
+    header('Location: ' . BASE_URL . 'auth/login');
       
   }
 }
