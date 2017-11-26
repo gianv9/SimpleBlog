@@ -1,13 +1,17 @@
 <?php
-//esta clase representa un blogpost de nuestra base de datos
+// esta clase representa un blogpost de nuestra base de datos
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
 class BlogPosts extends Model{
     protected $table = 'blog_posts';
-    protected $fillable = ['title', 'content'];//para que title y content se llenen automaticamente
+    //para que title img_url y content se llenen automaticamente
+    protected $fillable = ['title', 'content', 'img_url'];
+    
+
 }
-//nota se crearon los registros created_at y updated_at que son atributos que eloquent llena por defeto
-//se puede desactivar pero nos hace falta
+// nota se crearon los registros created_at y updated_at que 
+// son atributos que eloquent llena por defecto
+// se puede desactivar pero nos hace falta
 ?>
