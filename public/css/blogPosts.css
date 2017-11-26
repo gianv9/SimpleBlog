@@ -1,0 +1,10 @@
+.blog-post-image {
+    display: inline-block;
+    text-align: center;
+    padding: 10px 0 10px 0;
+}
+
+.blog-post-image img {
+    width: 70%;
+    border-radius: 10%;
+}
