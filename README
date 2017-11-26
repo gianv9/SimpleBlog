@@ -1,6 +1,7 @@
 Blog simple hecho en PHP
 Caracteristicas:
  - Uso del patron de diseno Front Controller utilizando el paquete Phroute.
+ - Uso del patro de diseno Sigleton para el manejo de Logs utilizando el paquete Monolog.
  - Manejo de dependencias e instalacion de paquetes/librerias utilizando Composer.
  - Utilizacion del orm eloquent
  - Utilizacion de DotEnv para simular variables de entorno dentro del proyecto
@@ -23,7 +24,9 @@ Librerias utilizadas:
  -> DotEnv (2.4)
       https://packagist.org/packages/vlucas/phpdotenv?q=&p=0
  -> siriusphp (2.2)
-
+      https://packagist.org/packages/siriusphp/validation
+ -> monolog (1.23)
+      https://packagist.org/packages/monolog/monolog
 
 Version de PHP utilizada: 7.0.22-0ubuntu0.16.04.1
 Desarrollado utilizando Apache/2.4.18 (Ubuntu)
