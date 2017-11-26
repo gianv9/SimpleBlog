@@ -11,7 +11,9 @@ Notas importantes:
       Para instalarla en ubuntu correr el siguiete comando:
       sudo apt-get install php7.0-mbstring
       https://stackoverflow.com/questions/34471633/cannot-initialize-mbstring-with-php-7
-
+- Para la conexion con la base de datos del servidor se utilizan las variables de entorno de DotEnv,
+      para aprovechar esta funcionalidad se debe crear un archivo .env en la raiz del proyecto. Para mas
+      informacion ver el template '.env.template'
 
 Librerias utilizadas:
  -> Phroute (v2.1.0):
@@ -22,6 +24,6 @@ Librerias utilizadas:
       https://packagist.org/packages/vlucas/phpdotenv?q=&p=0
  -> siriusphp (2.2)
 
-Version de PHP utilizada: 5.6.31
 
-Desarrollado utilizando XAMPP for Linux 5.6.31
+Version de PHP utilizada: 7.0.22-0ubuntu0.16.04.1
+Desarrollado utilizando Apache/2.4.18 (Ubuntu)
