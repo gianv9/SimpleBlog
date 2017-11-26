@@ -18,6 +18,8 @@ Notas importantes:
 - Para poder utilizar/escribir sobre el archivo de log, 
       debe otorgar los permisos correctos sobre la carpeta logs
       chmod 777 logs # por ejemplo...
+      De ser necesario en windows, ver el comando icacls:
+            https://technet.microsoft.com/es-es/library/cc753525(v=ws.10).aspx
 
 Librerias utilizadas:
  -> Phroute (v2.1.0):
