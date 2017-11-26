@@ -103,27 +103,34 @@ $router = new RouteCollector();
 // $router->tipoderequest->('ruta',funcion anonima callback para responder)
 
 #===========================#==========================ROUTES===========================#================================#
-####
-    $router->controller('/',App\Controllers\IndexController::class);#(ruta,clase controladora)
+
+$router->controller('/',App\Controllers\IndexController::class);#(ruta,clase controladora)
     //utilizamos una clase controladora en vez de un metodo especifico
+$router->controller('/auth',App\Controllers\AuthController::class);
 
-####
-    $router->controller('/auth',App\Controllers\AuthController::class);
+// creamos un filtro para verificar que el usuario esta loggeado
+// se ejecuta cada vez que se entra a la aplicacion...
+$router->filter('auth',function (){
+    if (!isset($_SESSION['userId'])) {
+        //redirecciona hacia el login
+        header('Location: '. BASE_URL . 'auth/login');
+        return false;
+    }
+});
 
-####
-$router->controller('/login',App\Controllers\Admin\IndexController::class);
-
-####
-$router->controller('/admin',App\Controllers\Admin\IndexController::class);
-
-####
-    $router->controller('/admin/posts', App\Controllers\Admin\PostsController::class);
-
-####
-    $router->controller('/admin/posts/insertPost', App\Controllers\Admin\PostsController::class);
-
-####
-    $router->controller('/admin/users', App\Controllers\Admin\UserController::class);
+// creamos un grupo y lo asociamos al filtro
+$router->group(['before' => 'auth'], function($router){
+    $router->controller('/login',
+            App\Controllers\Admin\IndexController::class);
+    $router->controller('/admin',
+            App\Controllers\Admin\IndexController::class);
+    $router->controller('/admin/posts', 
+            App\Controllers\Admin\PostsController::class);
+    $router->controller('/admin/posts/insertPost', 
+            App\Controllers\Admin\PostsController::class);
+    $router->controller('/admin/users', 
+            App\Controllers\Admin\UserController::class);
+});
         
         //error:
         //Fatal error: Uncaught exception 'ReflectionException' with message 'Class App\Controllers\IndexController does not exist' in /opt/lampp/htdocs/cursoPhpPlatzi/ProyectoBlog/vendor/phroute/phroute/src/Phroute/RouteCollector.php:315 Stack trace: #0 /opt/lampp/htdocs/cursoPhpPlatzi/ProyectoBlog/vendor/phroute/phroute/src/Phroute/RouteCollector.php(315): ReflectionClass->__construct('App\\Controllers...') #1 /opt/lampp/htdocs/cursoPhpPlatzi/ProyectoBlog/public/index.php(78): Phroute\Phroute\RouteCollector->controller('/', 'App\\Controllers...') #2 {main} thrown in /opt/lampp/htdocs/cursoPhpPlatzi/ProyectoBlog/vendor/phroute/phroute/src/Phroute/RouteCollector.php on line 315
