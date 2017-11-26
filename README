@@ -15,6 +15,9 @@ Notas importantes:
 - Para la conexion con la base de datos del servidor se utilizan las variables de entorno de DotEnv,
       para aprovechar esta funcionalidad se debe crear un archivo .env en la raiz del proyecto. Para mas
       informacion ver el template '.env.template'
+- Para poder utilizar/escribir sobre el archivo de log, 
+      debe otorgar los permisos correctos sobre la carpeta logs
+      chmod 777 logs # por ejemplo...
 
 Librerias utilizadas:
  -> Phroute (v2.1.0):
