@@ -1,6 +1,7 @@
 <?php
 namespace App;
 
+use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
 
 // clase que utiliza el patron de diseno Singleton
