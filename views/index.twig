@@ -14,10 +14,10 @@ le decimos que va a heredar de otro template #}
                         <h2>{{ blog_post.title }}</h2>
                         <p>Jan 1, 2020 by <a href="#">Gian</a></p>
                         {% if blog_post.img_url %}
-                        <div class="blog-post-image">
-                            <img src="{{ blog_post.img_url }}" alt="">
-                        </div>
-
+                          <div class="blog-post-image">
+                              <img src="{{ blog_post.img_url }}" alt="">
+                          </div>
+                        {% endif %}
                         <div class="blog-post-content">
                           <p>{{blog_post.content}}</p>
                         </div>
