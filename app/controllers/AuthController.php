@@ -3,7 +3,7 @@
   use App\Controllers\BaseController;
   use Sirius\Validation\Validator;
   use App\Models\User;
-  use App; //para la clase Log
+  use App\Log; //para la clase Log
 /**
  * ESTE ES EL CONTROLADOR PARA LA RUTA INDEX '/'
  */
