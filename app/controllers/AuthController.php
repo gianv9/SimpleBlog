@@ -3,6 +3,7 @@
   use App\Controllers\BaseController;
   use Sirius\Validation\Validator;
   use App\Models\User;
+  use App; //para la clase Log
 /**
  * ESTE ES EL CONTROLADOR PARA LA RUTA INDEX '/'
  */
@@ -28,6 +29,10 @@ class AuthController Extends BaseController //para obtener la funcion de render
         if(password_verify($_POST['password'], $user->password)){
           //usuario autenticado con exito
           $_SESSION['userId'] = $user->id;
+
+          //guardamos un log informativo
+          Log::logInfo('Login userId: '. $user->id);
+
           //creamos un encabezado en la respuesta
           header('Location:' . BASE_URL . 'admin');
         }
