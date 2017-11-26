@@ -13,9 +13,11 @@ le decimos que va a heredar de otro template #}
                       y los convierte en una especie de ebjeto de Twig -->
                         <h2>{{ blog_post.title }}</h2>
                         <p>Jan 1, 2020 by <a href="#">Gian</a></p>
+                        {% if blog_post.img_url %}
                         <div class="blog-post-image">
-                            <img src="images/blog.jpg" alt="">
+                            <img src="{{ blog_post.img_url }}" alt="">
                         </div>
+
                         <div class="blog-post-content">
                           <p>{{blog_post.content}}</p>
                         </div>
