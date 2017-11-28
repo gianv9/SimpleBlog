@@ -10,11 +10,13 @@ class IndexController Extends BaseController //para obtener la funcion de render
   //numero de post por pagina
   const PAGING_SIZE = 2;
   public $blog_posts = null;
-  public $row_num = 0;
+  public $posts_count = 0;
 
   function __construct(){
+    // obtengo constructor de la clase padre 
     parent::__construct();
-    $this->row_num = BlogPosts::query()->count();
+    // obtengo la cantidad de blog_posts
+    $this->posts_count = BlogPosts::query()->count();
   }
 
   public function getIndex()
@@ -38,14 +40,13 @@ class IndexController Extends BaseController //para obtener la funcion de render
     // cantidad de post que quiero saltar...
     $previous = ( ($arg-1) * $this::PAGING_SIZE );
 
-    var_dump($this->row_num);
-    echo "<br>";
-    var_dump($previous);
-    if ($this->row_num > $previous) {
+    // si tengo mas posts de los que salte
+    if ($this->posts_count > $previous) {
       //->take($this::PAGING_SIZE) = el numero de post que muestro
-      $this->blog_posts = BlogPosts::skip( $previous )->take($this::PAGING_SIZE)->orderBy('id','desc')->get();
-      // var_dump($previous);
-      // var_dump($this::PAGING_SIZE);
+      $this->blog_posts = BlogPosts::skip( $previous )
+                                   ->take($this::PAGING_SIZE)
+                                   ->orderBy('id','desc')
+                                   ->get();
     }
     else{
       header('Location: ' . BASE_URL );
