@@ -103,10 +103,11 @@ $router = new RouteCollector();
 // $router->tipoderequest->('ruta',funcion anonima callback para responder)
 
 #===========================#==========================ROUTES===========================#================================#
-
-$router->controller('/',App\Controllers\IndexController::class);#(ruta,clase controladora)
+#(ruta,clase controladora)
+$router->controller('/',App\Controllers\IndexController::class);
     //utilizamos una clase controladora en vez de un metodo especifico
 $router->controller('/auth',App\Controllers\AuthController::class);
+$router->controller('/posts',App\Controllers\PostsController::class);
 
 // creamos un filtro para verificar que el usuario esta loggeado
 // se ejecuta cada vez que se entra a la aplicacion...
