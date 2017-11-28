@@ -1,1 +1,23 @@
 {%  extends "layout.twig"  %}
+
+{% block titulo %}
+    <h1> {{ blog_post.title }} </h1>
+{% endblock %}
+
+{% block content %}
+    <div class="blog-post">
+        <p>Jan 1, 2020 by <a href="#">Gian</a></p>
+        {% if blog_post.img_url %}
+            <div class="blog-post-image">
+                <img src="{{ blog_post.img_url }}" alt="">
+            </div>
+        {% endif %}
+        <div class="blog-post-content">
+            <p>{{blog_post.content}}</p>
+        </div>
+    </div>
+    
+    {# {{ arg }} #}
+    {# <br/> #}
+    {# {{ dump(blog_post) }} #}
+{% endblock %}
