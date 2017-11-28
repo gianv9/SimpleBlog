@@ -107,7 +107,7 @@ $router = new RouteCollector();
 $router->controller('/',App\Controllers\IndexController::class);#(ruta,clase controladora)
     //utilizamos una clase controladora en vez de un metodo especifico
 $router->controller('/auth',App\Controllers\AuthController::class);
-$router->controller('/posts',App\Controllers\PostsController::class);
+$router->controller('/posts/{id}?',App\Controllers\PostsController::class);
 
 // creamos un filtro para verificar que el usuario esta loggeado
 // se ejecuta cada vez que se entra a la aplicacion...
