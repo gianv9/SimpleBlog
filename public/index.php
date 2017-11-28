@@ -105,6 +105,7 @@ $router = new RouteCollector();
 #===========================#==========================ROUTES===========================#================================#
 
 $router->controller('/',App\Controllers\IndexController::class);#(ruta,clase controladora)
+$router->controller('/page/{id}',App\Controllers\IndexController::class);
     //utilizamos una clase controladora en vez de un metodo especifico
 $router->controller('/auth',App\Controllers\AuthController::class);
 $router->controller('/posts/{id}?',App\Controllers\PostsController::class);
