@@ -51,6 +51,8 @@ class AuthController Extends BaseController //para obtener la funcion de render
   public function getLogout(){
     unset($_SESSION['userId']);
     header('Location: ' . BASE_URL . 'auth/login');
+    //guardamos un log informativo
+    Log::logInfo('LogOut userId: '. $user->id);
   }
 }
 
