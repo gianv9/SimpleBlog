@@ -12,6 +12,8 @@ le decimos que va a heredar de otro template #}
                       <!-- twig recibe arreglos asiciativos
                       y los convierte en una especie de ebjeto de Twig -->
                         <h2><a href="{{ ('posts/' ~ blog_post.id) | url  }}">{{ blog_post.title }}</a></h2>
+                        {# Como interpolar string en twig (linea anterior): #}
+                        {# https://stackoverflow.com/questions/7704253/how-to-concatenate-strings-in-twig #}
                         <p>Jan 1, 2020 by <a href="#">Gian</a></p>
                         {% if blog_post.img_url %}
                           <div class="blog-post-image">
