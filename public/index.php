@@ -103,8 +103,8 @@ $router = new RouteCollector();
 // $router->tipoderequest->('ruta',funcion anonima callback para responder)
 
 #===========================#==========================ROUTES===========================#================================#
-#(ruta,clase controladora)
-$router->controller('/',App\Controllers\IndexController::class);
+
+$router->controller('/',App\Controllers\IndexController::class);#(ruta,clase controladora)
     //utilizamos una clase controladora en vez de un metodo especifico
 $router->controller('/auth',App\Controllers\AuthController::class);
 $router->controller('/posts',App\Controllers\PostsController::class);
