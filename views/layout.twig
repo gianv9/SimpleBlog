@@ -47,9 +47,11 @@
         <div class="row" id="footer">
           <footer>
               <div class="col-md-12">
-                Este es el footer<br />
+                <br />
                 {# {{   la url que queremos | filtro    }} #}
-                <a href="{{ 'admin' | url }}" class="btn btn-info">Admin Panel</a>
+                <a {% block buttonUrl %}{%  endblock  %} class="btn btn-info">
+                  {% block buttonName %}{%  endblock  %}
+                </a>
 
               </div>
           </footer>

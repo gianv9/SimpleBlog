@@ -26,3 +26,11 @@ le decimos que va a heredar de otro template #}
                     </div>
         {%  endfor  %}
 {% endblock %}
+
+{% block buttonName %}
+  Admin Panel
+{%  endblock  %}
+
+{% block buttonUrl %}
+href="{{ 'admin' | url }}"
+{%  endblock  %}

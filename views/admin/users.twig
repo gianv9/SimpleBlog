@@ -23,3 +23,11 @@
 
         <a href="{{'admin/users/create' | url}}" class="btn btn-primary">New User</a>
 {% endblock %}
+
+{% block buttonName %}
+  Admin Panel
+{%  endblock  %}
+
+{% block buttonUrl %}
+href="{{ 'admin' | url }}"
+{%  endblock  %}
