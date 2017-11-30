@@ -27,6 +27,13 @@ le decimos que va a heredar de otro template #}
         {%  endfor  %}
 {% endblock %}
 
+{% block pager %}
+<div class="col-md-12 text-center">
+  <a class="btn btn-info">Previous Page</a>
+  <a class="btn btn-info">Next Page</a>
+</div>
+{% endblock %}
+
 {% block buttonName %}
   Admin Panel
 {%  endblock  %}
