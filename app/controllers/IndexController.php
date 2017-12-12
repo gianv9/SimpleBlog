@@ -1,5 +1,6 @@
 <?php
-  namespace App\Controllers;
+  // namespace App\Controllers;
+  namespace app\controllers;
   use App\Models\BlogPosts;
 
 /**
