@@ -1,10 +1,10 @@
 <?php
 #tenemos que agregar la seccion de admin para que pr4 encuentre esa carpeta
 #automaticamente
-namespace App\Controllers\Admin;
+namespace app\controllers\Admin;
 
-use App\Controllers\BaseController;
-use App\Models\User;
+use app\controllers\BaseController;
+use app\models\User;
 
 /**
  *

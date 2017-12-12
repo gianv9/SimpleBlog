@@ -104,11 +104,11 @@ $router = new RouteCollector();
 
 #===========================#==========================ROUTES===========================#================================#
 
-$router->controller('/',App\Controllers\IndexController::class);#(ruta,clase controladora)
-$router->controller('/page/{id}',App\Controllers\IndexController::class);
+$router->controller('/',app\controllers\IndexController::class);#(ruta,clase controladora)
+$router->controller('/page/{id}',app\controllers\IndexController::class);
     //utilizamos una clase controladora en vez de un metodo especifico
-$router->controller('/auth',App\Controllers\AuthController::class);
-$router->controller('/posts/{id}?',App\Controllers\PostsController::class);
+$router->controller('/auth',app\controllers\AuthController::class);
+$router->controller('/posts/{id}?',app\controllers\PostsController::class);
 
 // creamos un filtro para verificar que el usuario esta loggeado
 // se ejecuta cada vez que se entra a la aplicacion...
@@ -123,15 +123,15 @@ $router->filter('auth',function (){
 // creamos un grupo y lo asociamos al filtro
 $router->group(['before' => 'auth'], function($router){
     $router->controller('/login',
-            App\Controllers\Admin\IndexController::class);
+            app\controllers\admin\IndexController::class);
     $router->controller('/admin',
-            App\Controllers\Admin\IndexController::class);
+            app\controllers\admin\IndexController::class);
     $router->controller('/admin/posts', 
-            App\Controllers\Admin\PostsController::class);
+            app\controllers\admin\PostsController::class);
     $router->controller('/admin/posts/insertPost', 
-            App\Controllers\Admin\PostsController::class);
+            app\controllers\admin\PostsController::class);
     $router->controller('/admin/users', 
-            App\Controllers\Admin\UserController::class);
+            app\controllers\admin\UserController::class);
 });
         
         //error:

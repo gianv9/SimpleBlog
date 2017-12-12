@@ -1,9 +1,9 @@
 <?php
-  namespace App\Controllers;
-  use App\Controllers\BaseController;
+  namespace app\controllers;
+  use app\controllers\BaseController;
   use Sirius\Validation\Validator;
-  use App\Models\User;
-  use App\Log; //para la clase Log
+  use app\models\User;
+  use app\log; //para la clase Log
 /**
  * ESTE ES EL CONTROLADOR PARA LA RUTA INDEX '/'
  */

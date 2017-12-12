@@ -1,6 +1,6 @@
 <?php
 // esta clase representa un blogpost de nuestra base de datos
-namespace App\Models;
+namespace app\models;
 
 use Illuminate\Database\Eloquent\Model;
 

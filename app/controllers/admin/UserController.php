@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Controllers\Admin;
-use App\Controllers\BaseController;
-use App\Models\User;
+namespace app\controllers\Admin;
+use app\controllers\BaseController;
+use app\models\User;
 use Sirius\Validation\Validator;
 
 class UserController extends BaseController {

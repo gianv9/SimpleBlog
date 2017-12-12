@@ -1,8 +1,8 @@
 <?php
-namespace App\Controllers\Admin;
+namespace app\controllers\Admin;
 
-use App\Controllers\BaseController;
-use App\Models\BlogPosts;
+use app\controllers\BaseController;
+use app\models\BlogPosts;
 use Sirius\Validation\Validator;
 /**
  *
