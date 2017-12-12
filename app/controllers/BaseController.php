@@ -1,7 +1,7 @@
 <?php
 //agregamos el namespace en el que estoy trabajando
 
-namespace App\Controllers;
+namespace app\controllers;
 
 use Twig_Loader_Filesystem;
 use Twig_Environment;

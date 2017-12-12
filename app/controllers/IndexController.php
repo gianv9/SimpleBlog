@@ -1,7 +1,7 @@
 <?php
   // namespace App\Controllers;
   namespace app\controllers;
-  use App\Models\BlogPosts;
+  use app\models\BlogPosts;
 
 /**
  * ESTE ES EL CONTROLADOR PARA LA RUTA INDEX '/'

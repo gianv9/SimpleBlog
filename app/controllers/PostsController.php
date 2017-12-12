@@ -1,8 +1,8 @@
 <?php
 namespace App\Controllers;
 
-use App\Controllers\BaseController;
-use App\Models\BlogPosts;
+use app\controllers\BaseController;
+use app\models\BlogPosts;
 
 class PostsController extends BaseController
 {
